@@ -19,9 +19,9 @@ class ModelTests(TestCase):
     def test_new_user_email_normalized(self):
         """Test the email for a new user is normalized."""
         sample_emails = [
-            ['test1@EXAMPLE.COM','test1@example.com'],
-            ['Test2@Example.Com','Test2@example.com'],
-            ['TEST3@EXAMPLE.COM','TEST3@example.com'],
+            ['test1@EXAMPLE.COM', 'test1@example.com'],
+            ['Test2@Example.Com', 'Test2@example.com'],
+            ['TEST3@EXAMPLE.COM', 'TEST3@example.com'],
             ['test4@example.COM', 'test4@example.com']
         ]
         for email, expected in sample_emails:
@@ -32,7 +32,6 @@ class ModelTests(TestCase):
         """Test creating a new user without an email raises an error."""
         with self.assertRaises(ValueError):
             get_user_model().objects.create_user(email='', password='sample123')
-
 
     def test_create_superuser(self):
         """Test creating a new superuser."""

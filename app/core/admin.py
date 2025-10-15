@@ -4,6 +4,7 @@ from core import models
 from django.utils.translation import gettext_lazy as _
 # Register your models here.
 
+
 class UserAdmin(BaseUserAdmin):
     """Admin page"""
     ordering = ["id"]
@@ -13,7 +14,7 @@ class UserAdmin(BaseUserAdmin):
         (
             _('Permissions'),
             {
-                'fields':(
+                'fields': (
                     'is_active',
                     'is_staff',
                     'is_superuser',
@@ -24,7 +25,7 @@ class UserAdmin(BaseUserAdmin):
     )
     readonly_fields = ['last_login']
     add_fieldsets = (
-        (None,{
+        (None, {
             'classes': ('wide',),
             'fields': (
                 'email',
@@ -38,5 +39,6 @@ class UserAdmin(BaseUserAdmin):
         }
         ),
     )
+
 
 admin.site.register(models.User, UserAdmin)
